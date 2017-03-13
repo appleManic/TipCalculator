@@ -147,7 +147,7 @@
                                         </connections>
                                     </switch>
                                 </subviews>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="0.88884777780000002" blue="0.54714843810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="CnN-OY-NdU" firstAttribute="leading" secondItem="bwE-aa-yYK" secondAttribute="leading" constant="20" id="06A-yZ-eFK"/>
                                     <constraint firstItem="JE6-n9-RSM" firstAttribute="leading" secondItem="Q2q-SW-gRg" secondAttribute="trailing" constant="25" id="6ve-xm-0ka"/>

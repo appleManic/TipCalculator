@@ -9,29 +9,8 @@
 import Foundation
 import UIKit
 
-enum Service {
-    case bad, okay, excellent
-}
-
 class TipCalculatorManager {
-  //
-    var deafultValues: [String: Double]! {
-        didSet {
-            let  deafultVal = ["bad": 15 , "okay": 18, "excellent": 20]
-            UserDefaults.standard.set(deafultVal, forKey: "defaultValues")
-        }
-    }
-    
-    init() {
-        print("TipCalculatorManager init")
-        if let deafultValues = UserDefaults.standard.dictionary(forKey: "defaultValues") {
-            self.deafultValues = deafultValues as? [String : Double]
-        } else {
-           let  deafultVal = ["bad": 15 , "okay": 18, "excellent": 20]
-            UserDefaults.standard.set(deafultVal, forKey: "defaultValues")
-        }
-    }
-    
+  
     var isTipPercentageSelected = false
     
     var amoutBeforeTip: Double = 0
@@ -60,7 +39,6 @@ class TipCalculatorManager {
             amoutBeforeTip = newValue
         }
     }
-
 }
 
     
