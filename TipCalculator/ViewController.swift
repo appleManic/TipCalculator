@@ -33,13 +33,16 @@ class ViewController: UIViewController {
         tipCal = TipCalculatorManager()
         settingsManager = SettingsManager()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+         print("ViewController .. viewdidAppear")
         //TODO: Get the currency code and Symbol
-       let currencyCode =  settingsManager.getCurrencyCode()
+        let currencyCode =  settingsManager.getCurrencyCode()
         currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)
-        print(currencySymbol)
+        print("currency used \(currencySymbol)")
         
-        
-        // 
         let label = UILabel()
         label.frame = CGRect(x: 0, y: 0, width: 20, height: 70)
         label.text = currencySymbol
@@ -55,6 +58,8 @@ class ViewController: UIViewController {
         label1.frame = CGRect(x: 0, y: 0, width: 20, height: 70)
         totalAmountTextFeild.leftViewMode = UITextFieldViewMode.always
         totalAmountTextFeild.leftView = label1
+
+        segmentedButton.isEnabled = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -64,10 +69,6 @@ class ViewController: UIViewController {
     
     @IBAction func segmentControlButtonClicked(_ sender: UISegmentedControl) {
        tipCal.isTipPercentageSelected = true
-        
-        if sender.isSelected {
-            tipAmountTextFeild.text = ""
-        }
         
         var segmentTitle: String = ""
         switch sender.selectedSegmentIndex {
@@ -82,6 +83,8 @@ class ViewController: UIViewController {
         }
         
         tipCal.tipPercent = Double(segmentTitle)!
+        
+        tipAmountTextFeild.text = String(tipCal.tipAmountCalculated)
         
         let totalAmount = "\(currencySymbol)\(String(tipCal.totalAmount))"
         totalAmountButton.setTitle(totalAmount, for: .normal)

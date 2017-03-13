@@ -28,23 +28,13 @@ class SettingsViewController: UIViewController {
         segmentButton.isEnabled = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
         switchButt.isOn = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
         
-        pickerViewButton.isEnabled = false
+        //pickerViewButton.isEnabled = false
     
+        let currencyCode =  settingsManager.getCurrencyCode()
+        let currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)
         
-      //  print("Defalut values \(settingsManager.getDefaultValue())")
-        
-        
-//        pickerData = settingsManager.getCurrencyCodeForAllLocales()
-//        pickerViewHeightConstraint.constant = 0
-//       // pickerViewButton.titleLabel?.text = "Currency selected \(settingsManager.currencySymbolFor(currencyCode: settingsManager.getCurrencyCode()))"
-//        let buttonTitle = "Currency selected \(settingsManager.currencySymbolFor(currencyCode: settingsManager.getCurrencyCode()))"
-//        
-//        
-//        pickerViewButton.setTitle(buttonTitle, for: .normal)
-        
-        //print("Settings \(settingsManager.getDefaultValue())")
-       // print("code \(settingsManager.getCurrencyCodeForAllLocales())")
-        
+        let buttonTitle = "Currency selected \(currencyCode): \(currencySymbol)"
+        pickerViewButton.setTitle(buttonTitle, for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
@@ -66,68 +56,5 @@ class SettingsViewController: UIViewController {
         let currencyCode = settingsManager.getCurrencyCode()
         let currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)
         pickerViewButton.setTitle("Currency code: \(currencyCode) Currency symbol: \(currencySymbol)", for: .normal)
-        
-       
-//        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
-//            self.pickerViewHeightConstraint.constant = !self.isPickerViewOpen ? -250.0 : 0
-//            self.view.layoutIfNeeded()
-//        }, completion: {_ in
-//             self.isPickerViewOpen = true
-//        })
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-//extension SettingsViewController: UIPickerViewDataSource {
-//    @available(iOS 2.0, *)
-//    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-//        return 1
-//    }
-//    
-//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-//        return pickerData.count;
-//    }
-//    
-//}
-/*
-extension SettingsViewController: UIPickerViewDelegate {
-    //MARK: Delegates
-     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-
-        //print("Item is \(component), row \(row)")
-        
-        settingsManager.storeCurrencyCode(pickerData[row])
-        let buttonTitle = "Currency selected \(settingsManager.currencySymbolFor(currencyCode: settingsManager.getCurrencyCode()))"
-        pickerViewButton.setTitle(buttonTitle, for: .normal)
-        
-        //        var pickerLabel = view as! UILabel!
-//        if view == nil {  //if no label there yet
-//            pickerLabel = UILabel()
-//            //color the label's background
-//            let hue = CGFloat(row)/CGFloat(pickerData.count)
-//            pickerLabel?.backgroundColor = UIColor(hue: hue, saturation: 1.0, brightness: 1.0, alpha: 1.0)
-//        }
-//        let titleData = pickerData[row]
-//        let myTitle = NSAttributedString(string: titleData, attributes: [NSFontAttributeName:UIFont(name: "Georgia", size: 26.0)!,NSForegroundColorAttributeName:UIColor.black])
-//        pickerLabel!.attributedText = myTitle
-//        pickerLabel!.textAlignment = .center
-//        return pickerLabel
-        
-        // pickerView. = pickerData[row]
-    }
-*/
 }

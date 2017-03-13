@@ -115,8 +115,8 @@
                                 <rect key="frame" x="0.0" y="147" width="375" height="73"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Default tipping" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CnN-OY-NdU">
-                                        <rect key="frame" x="20" y="7" width="250" height="18"/>
-                                        <color key="backgroundColor" white="0.95302813223430094" alpha="1" colorSpace="calibratedWhite"/>
+                                        <rect key="frame" x="20" y="2" width="250" height="18"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="250" id="VBs-eA-dqw"/>
                                             <constraint firstAttribute="height" constant="18" id="e3r-f2-dh8"/>
@@ -125,14 +125,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Q2q-SW-gRg">
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" highlighted="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Q2q-SW-gRg">
                                         <rect key="frame" x="20" y="25" width="250" height="31"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="GHg-1F-1ue"/>
-                                            <constraint firstAttribute="width" constant="250" id="oQJ-Qd-20M"/>
                                         </constraints>
                                         <segments>
-                                            <segment title="15%" enabled="NO"/>
+                                            <segment title="15%"/>
                                             <segment title="18%"/>
                                             <segment title="20%"/>
                                         </segments>
@@ -151,8 +150,9 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CnN-OY-NdU" firstAttribute="leading" secondItem="bwE-aa-yYK" secondAttribute="leading" constant="20" id="06A-yZ-eFK"/>
+                                    <constraint firstItem="JE6-n9-RSM" firstAttribute="leading" secondItem="Q2q-SW-gRg" secondAttribute="trailing" constant="25" id="6ve-xm-0ka"/>
                                     <constraint firstItem="Q2q-SW-gRg" firstAttribute="leading" secondItem="bwE-aa-yYK" secondAttribute="leading" constant="20" id="QHR-sB-xCh"/>
-                                    <constraint firstItem="Q2q-SW-gRg" firstAttribute="top" secondItem="CnN-OY-NdU" secondAttribute="bottom" id="TBB-G6-BHI"/>
+                                    <constraint firstItem="Q2q-SW-gRg" firstAttribute="top" secondItem="CnN-OY-NdU" secondAttribute="bottom" constant="5" id="TBB-G6-BHI"/>
                                     <constraint firstItem="JE6-n9-RSM" firstAttribute="centerY" secondItem="bwE-aa-yYK" secondAttribute="centerY" constant="4" id="ZPI-qL-RfU"/>
                                     <constraint firstItem="Q2q-SW-gRg" firstAttribute="centerY" secondItem="bwE-aa-yYK" secondAttribute="centerY" constant="3.5" id="ZVr-XY-d5Q"/>
                                     <constraint firstAttribute="trailing" secondItem="JE6-n9-RSM" secondAttribute="trailing" constant="30" id="emZ-or-Qhk"/>
