@@ -1,5 +1,8 @@
 # TipCalculator
 This is the POC for CodePath
+# Gif walk through of app
+http://i.makeagif.com/media/3-13-2017/4bKAia.gif
+
 # Pre-work - *Name of App Here*
 
 **Name of your app** is a tip calculator application for iOS.
