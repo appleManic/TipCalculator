@@ -17,8 +17,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var totalAmountTextFeild: UITextField!
     @IBOutlet weak var tipAmountTextFeild: UITextField!
     @IBOutlet weak var segmentedButton: UISegmentedControl!
-    @IBOutlet weak var totalAmountButton: UIButton!
-    
+    @IBOutlet weak var totalAmountLabel: UILabel!
+  
     var currencySymbol: String = ""
     
     override func viewDidLoad() {
@@ -32,12 +32,12 @@ class ViewController: UIViewController {
         
         tipCal = TipCalculatorManager()
         settingsManager = SettingsManager()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
          print("ViewController .. viewdidAppear")
+        
         //TODO: Get the currency code and Symbol
         let currencyCode =  settingsManager.getCurrencyCode()
         currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)
@@ -48,7 +48,6 @@ class ViewController: UIViewController {
         label.text = " Tip: \(currencySymbol)"
         label.font = UIFont.systemFont(ofSize: 20)
         tipAmountTextFeild.leftViewMode = UITextFieldViewMode.always
-        
         tipAmountTextFeild.leftView = label
         
         
@@ -69,8 +68,6 @@ class ViewController: UIViewController {
     
     @IBAction func segmentControlButtonClicked(_ sender: UISegmentedControl) {
        tipCal.isTipPercentageSelected = true
-        //segmentedButton.isMomentary = false
-       // segmentedButton.selectedSegmentIndex = UISegmentedControlNoSegment
         
         var segmentTitle: String = ""
         switch sender.selectedSegmentIndex {
@@ -89,7 +86,7 @@ class ViewController: UIViewController {
         tipAmountTextFeild.text = String(tipCal.tipAmountCalculated)
         
         let totalAmount = "\(currencySymbol)\(String(tipCal.totalAmount))"
-        totalAmountLable.text =  "Total amount: \(totalAmount)"
+        totalAmountLabel.text =  "Total amount: \(totalAmount)"
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -100,7 +97,7 @@ class ViewController: UIViewController {
 extension ViewController: UITextFieldDelegate {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        segmentedButton.isMomentary = false
+        segmentedButton.selectedSegmentIndex = UISegmentedControlNoSegment
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -109,18 +106,16 @@ extension ViewController: UITextFieldDelegate {
         if textField == totalAmountTextFeild {
             tipCal.amoutBeforeTip = Double(newText) ?? 0
             segmentedButton.selectedSegmentIndex = UISegmentedControlNoSegment
-            //segmentedButton.isMomentary = true
         } else {
             tipCal.tipAmount = Double(newText) ?? 0
             tipCal.isTipPercentageSelected = false
-            //segmentedButton.isMomentary = true
             segmentedButton.selectedSegmentIndex = UISegmentedControlNoSegment
         }
         
         print("Before Amount \(tipCal.amoutBeforeTip) tipAmount \(tipCal.tipAmount) totalAmount \(tipCal.totalAmount)")
         
         let totalAmount = "\(currencySymbol)\(String(tipCal.totalAmount))"
-        totalAmountLable.text =  "Total amount: \(totalAmount)"
+        totalAmountLabel.text =  "Total amount: \(totalAmount)"
         return true
     }
 }

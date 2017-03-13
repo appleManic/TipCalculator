@@ -82,7 +82,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="h9N-R7-jlS">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="IZN-qY-nSo">
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="IZN-qY-nSo">
                             <connections>
                                 <segue destination="BUf-2W-8g4" kind="show" identifier="toSettings" id="c6h-8M-NEF"/>
                             </connections>
@@ -91,7 +91,7 @@
                     <connections>
                         <outlet property="segmentedButton" destination="O7N-hx-wUU" id="D0Q-8b-MYt"/>
                         <outlet property="tipAmountTextFeild" destination="oAa-Oc-Xpr" id="f2S-aL-KVt"/>
-                        <outlet property="totalAmountLable" destination="wgl-LI-Ipv" id="2xC-vB-cuz"/>
+                        <outlet property="totalAmountLabel" destination="wgl-LI-Ipv" id="plz-sd-Wrf"/>
                         <outlet property="totalAmountTextFeild" destination="d5j-Y5-Y0s" id="oQm-cm-AoK"/>
                     </connections>
                 </viewController>
