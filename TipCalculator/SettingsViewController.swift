@@ -28,7 +28,7 @@ class SettingsViewController: UIViewController {
         segmentButton.isEnabled = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
         switchButt.isOn = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
         
-        //pickerViewButton.isEnabled = false
+        pickerViewButton.isEnabled = false
     
         let currencyCode =  settingsManager.getCurrencyCode()
         let currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)

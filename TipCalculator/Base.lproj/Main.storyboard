@@ -54,28 +54,28 @@
                                     <action selector="segmentControlButtonClicked:" destination="BYZ-38-t0r" eventType="valueChanged" id="WsS-q5-E6B"/>
                                 </connections>
                             </segmentedControl>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="viv-fq-UBy">
-                                <rect key="frame" x="46" y="384" width="283" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wgl-LI-Ipv">
+                                <rect key="frame" x="46" y="384" width="283" height="50"/>
+                                <color key="backgroundColor" red="1" green="0.88884777780000002" blue="0.54714843810000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="70" id="1ag-qZ-Tbt"/>
+                                    <constraint firstAttribute="height" constant="50" id="dth-we-G68"/>
                                 </constraints>
-                                <state key="normal" title="Click to get total amount"/>
-                                <connections>
-                                    <action selector="totalAmountButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aRj-Wn-sEf"/>
-                                </connections>
-                            </button>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="d5j-Y5-Y0s" secondAttribute="trailing" constant="30" id="0uQ-GQ-uQm"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="viv-fq-UBy" secondAttribute="trailing" constant="30" id="65e-er-0xv"/>
-                            <constraint firstItem="viv-fq-UBy" firstAttribute="top" secondItem="O7N-hx-wUU" secondAttribute="bottom" constant="30" id="9IM-7B-b8b"/>
                             <constraint firstItem="O7N-hx-wUU" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" constant="-30" id="LKd-B6-M3o"/>
                             <constraint firstItem="O7N-hx-wUU" firstAttribute="top" secondItem="oAa-Oc-Xpr" secondAttribute="bottom" constant="30" id="MEM-O8-fAR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wgl-LI-Ipv" secondAttribute="trailing" constant="30" id="OLj-nC-jHY"/>
+                            <constraint firstItem="wgl-LI-Ipv" firstAttribute="top" secondItem="O7N-hx-wUU" secondAttribute="bottom" constant="30" id="Qc9-VO-vU7"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oAa-Oc-Xpr" secondAttribute="trailing" constant="30" id="Tje-FX-Pm7"/>
                             <constraint firstItem="oAa-Oc-Xpr" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="War-ui-byZ"/>
+                            <constraint firstItem="wgl-LI-Ipv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="e0C-Qr-AW3"/>
                             <constraint firstItem="oAa-Oc-Xpr" firstAttribute="top" secondItem="d5j-Y5-Y0s" secondAttribute="bottom" constant="30" id="hZu-CV-4wF"/>
-                            <constraint firstItem="viv-fq-UBy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="o1D-H2-rpa"/>
                             <constraint firstItem="d5j-Y5-Y0s" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="60" id="rPr-Ah-3Lo"/>
                             <constraint firstItem="O7N-hx-wUU" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="uTe-1q-SwE"/>
                             <constraint firstItem="d5j-Y5-Y0s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="30" id="zkj-0z-rl7"/>
@@ -91,7 +91,7 @@
                     <connections>
                         <outlet property="segmentedButton" destination="O7N-hx-wUU" id="D0Q-8b-MYt"/>
                         <outlet property="tipAmountTextFeild" destination="oAa-Oc-Xpr" id="f2S-aL-KVt"/>
-                        <outlet property="totalAmountButton" destination="viv-fq-UBy" id="Q1w-3u-hWB"/>
+                        <outlet property="totalAmountLable" destination="wgl-LI-Ipv" id="2xC-vB-cuz"/>
                         <outlet property="totalAmountTextFeild" destination="d5j-Y5-Y0s" id="oQm-cm-AoK"/>
                     </connections>
                 </viewController>
