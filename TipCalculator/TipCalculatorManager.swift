@@ -17,7 +17,7 @@ class TipCalculatorManager {
   //
     var deafultValues: [String: Double]! {
         didSet {
-            let  deafultVal = ["bad": 50 , "okay": 18, "excellent": 20]
+            let  deafultVal = ["bad": 15 , "okay": 18, "excellent": 20]
             UserDefaults.standard.set(deafultVal, forKey: "defaultValues")
         }
     }
@@ -32,7 +32,9 @@ class TipCalculatorManager {
         }
     }
     
-    var amoutBeforeTip: Double?
+    var isTipPercentageSelected = false
+    
+    var amoutBeforeTip: Double = 0
     
     var tipPercent: Double = 0 {
         didSet {
@@ -43,12 +45,17 @@ class TipCalculatorManager {
         }
     }
     
-    var tipAmount: Double {
-            return (amoutBeforeTip! * tipPercent / 100)
+    var tipAmountCalculated: Double {
+        get{
+            return (amoutBeforeTip * tipPercent / 100)
+        }
     }
     
+    var tipAmount: Double = 0
+    
+    
     var totalAmount: Double {
-        get {return (amoutBeforeTip! + amoutBeforeTip! * tipPercent / 100)}
+        get {return (amoutBeforeTip + (isTipPercentageSelected ? (amoutBeforeTip * tipPercent / 100) : tipAmount ))}
         set(newValue) {
             amoutBeforeTip = newValue
         }

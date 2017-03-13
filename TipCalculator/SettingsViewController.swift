@@ -18,9 +18,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var segmentButton: UISegmentedControl!
     @IBOutlet weak var switchButt: UISwitch!
     
-    @IBOutlet weak var pickerView: UIPickerView!
-    @IBOutlet weak var pickerViewHeightConstraint: NSLayoutConstraint!
-    
     @IBOutlet weak var pickerViewButton: UIButton!
     
     override func viewDidLoad() {
@@ -28,11 +25,11 @@ class SettingsViewController: UIViewController {
         print("SettingsViewController viewDidLoad")
         settingsManager = SettingsManager()
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
         segmentButton.isEnabled = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
         switchButt.isOn = (UserDefaults.standard.value(forKey: "switchOnOff") as! Bool? ?? isSwitchedOn)
+        
+        pickerViewButton.isEnabled = false
+    
         
       //  print("Defalut values \(settingsManager.getDefaultValue())")
         
@@ -66,17 +63,19 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func pickerViewAction(_ sender: UIButton) {
+        let currencyCode = settingsManager.getCurrencyCode()
+        let currencySymbol = settingsManager.currencySymbolFor(currencyCode: currencyCode)
+        pickerViewButton.setTitle("Currency code: \(currencyCode) Currency symbol: \(currencySymbol)", for: .normal)
+        
        
-        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
-            self.pickerViewHeightConstraint.constant = !self.isPickerViewOpen ? -250.0 : 0
-            self.view.layoutIfNeeded()
-        }, completion: {_ in
-             self.isPickerViewOpen = true
-        })
+//        UIView.animate(withDuration: 0.5, delay: 0.0, options: [], animations: {
+//            self.pickerViewHeightConstraint.constant = !self.isPickerViewOpen ? -250.0 : 0
+//            self.view.layoutIfNeeded()
+//        }, completion: {_ in
+//             self.isPickerViewOpen = true
+//        })
     }
     
-    
-
     /*
     // MARK: - Navigation
 
@@ -89,18 +88,18 @@ class SettingsViewController: UIViewController {
 
 }
 
-extension SettingsViewController: UIPickerViewDataSource {
-    @available(iOS 2.0, *)
-    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count;
-    }
-    
-}
-
+//extension SettingsViewController: UIPickerViewDataSource {
+//    @available(iOS 2.0, *)
+//    public func numberOfComponents(in pickerView: UIPickerView) -> Int {
+//        return 1
+//    }
+//    
+//    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+//        return pickerData.count;
+//    }
+//    
+//}
+/*
 extension SettingsViewController: UIPickerViewDelegate {
     //MARK: Delegates
      func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -130,5 +129,5 @@ extension SettingsViewController: UIPickerViewDelegate {
         
         // pickerView. = pickerData[row]
     }
-
+*/
 }
